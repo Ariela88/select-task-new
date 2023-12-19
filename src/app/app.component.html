@@ -1,0 +1,7 @@
+<app-city-object-selector [cities]="cities" [(ngModel)]="selectedCity"></app-city-object-selector>
+
+<div class="form-city">
+    <h3>Descrizione: {{selectedCity?.descrizione}}</h3>
+    <h3>Regione: {{selectedCity?.regione}}</h3>
+    <h3>Provincia: {{selectedCity?.provincia}}</h3>
+</div>
