@@ -1,3 +1,15 @@
- <select [ngModel]="selectedCity" (ngModelChange)="onChange($event)">
-      <option *ngFor="let city of cities" [ngValue]="city">{{ city.descrizione }}</option>
-    </select>
+<div class="city-selector">
+  <div class="custom-select" >
+    <span (click)="toggleDropdown()">mostra lista </span>
+    <div class="selected-cities">
+      <span *ngFor="let city of selectedCities">{{ city.nome }}, </span>
+    </div>
+    <div class="dropdown" *ngIf="showDropdown">
+      <select multiple>
+        <option *ngFor="let city of cities; let i = index" [value]="i" (click)="toggleSelection(i)">
+          {{ city.nome }}
+        </option>
+      </select>
+    </div>
+  </div>
+</div>

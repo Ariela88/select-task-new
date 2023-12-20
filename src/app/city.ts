@@ -3,4 +3,7 @@ export interface City {
     provincia:string;
     id:number;
     descrizione:string;
+    nome:string;
+    targa:string;
+    capoluogo:boolean;
 }

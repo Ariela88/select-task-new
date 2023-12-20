@@ -1,0 +1,34 @@
+header{
+    width: 100%;
+    height: 60px;
+    background-color: rgb(149, 149, 149);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title{
+    margin: 20px;
+}
+
+.spacer{
+    flex: 1 1;
+}
+
+.select-container{
+    margin: 20px;
+}
+
+p{
+    width: 50%;
+}
+
+
+.example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://partodamilano.com/wp-content/uploads/2020/01/citta-nord-italia_copertina-585x380.jpg');
+    background-size: cover;
+  }
