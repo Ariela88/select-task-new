@@ -1,0 +1,42 @@
+select{
+   z-index: 999;
+   position: absolute;   
+}
+
+.custom-select{
+    
+    top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.city-selector{
+    display: flex;
+}
+
+.filtered-cities{
+    color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+ul{
+    border: solid 1px black;
+    border-top: none;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    width: 100%;
+    
+}
+
+li{
+    list-style: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.dropdown{
+    margin: 0;
+   
+}
