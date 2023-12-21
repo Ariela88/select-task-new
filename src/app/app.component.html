@@ -1,35 +1,15 @@
-<mat-toolbar color="primary"> 
-    <div class="title"> 
-        <h2>Seleziona le città: </h2>
-    </div>
-    <div class="select-container"> 
-        <app-city-object-selector [cities]="cities" [(ngModel)]="selectedCities"></app-city-object-selector>
-    </div>
-    <div class="spacer"></div>
+<mat-toolbar color="primary">
+  <div class="title">
+    <h2>Seleziona le città: </h2>
+  </div>
+  <div class="select-container">
+    <app-city-object-selector [cities]="cities" [(ngModel)]="selectedCities"></app-city-object-selector>
+  </div>
+  <div class="spacer"></div>
 </mat-toolbar>
 
-<div class="city-card-wrapper"> 
+<div class="city-card-wrapper">
   <div *ngFor="let city of selectedCities" class="city-card">
-    <mat-card class="example-card">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{city?.nome}}</mat-card-title>
-        <mat-card-subtitle>
-          <strong>Regione: </strong> {{city?.regione}} <br>
-          <strong>Provincia: </strong> {{city?.provincia}} <br>
-          <strong>Targa: </strong> {{city?.targa}} <br>
-          <span *ngIf="city"> 
-            <strong> Capoluogo: </strong> {{city.capoluogo ? 'si' : 'no'}}
-          </span> 
-        </mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://partodamilano.com/wp-content/uploads/2020/01/citta-nord-italia_copertina-585x380.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-        <p>{{city?.descrizione}}</p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button color="warn" (click)="removeCity(city)">Elimina</button>
-      </mat-card-actions>
-    </mat-card>
+    <app-city-card [city]="city" (removeCity)="removeCity($event)"></app-city-card>
   </div>
 </div>

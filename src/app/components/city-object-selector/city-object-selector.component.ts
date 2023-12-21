@@ -27,7 +27,7 @@ export class CityObjectSelectorComponent implements ControlValueAccessor {
   cityInput: string = '';
 
   filterCities() {
-    this.filteredCities = this.cities.filter(city =>
+    this.filteredCities = this.cities.filter((city) =>
       city.nome.toLowerCase().includes(this.cityInput.toLowerCase())
     );
   }
@@ -40,7 +40,7 @@ export class CityObjectSelectorComponent implements ControlValueAccessor {
     if (!this.selectedCities.some((c) => c.id === city.id)) {
       this.selectedCities.push(city);
       this.onChange(this.selectedCities);
-      this.cityInput = ''; 
+      this.cityInput = '';
       this.filteredCities = [];
     }
   }
@@ -58,7 +58,6 @@ export class CityObjectSelectorComponent implements ControlValueAccessor {
     // this.checkIfAllCitiesSelected();
 
     this.cityInput = '';
-    
   }
 
   registerOnChange(fn: any): void {

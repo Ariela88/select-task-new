@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { City } from './city';
 
 @Component({
@@ -7,7 +7,7 @@ import { City } from './city';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  cities: City[] = [
+  @Input() cities: City[] = [
     {
       regione: 'Liguria',
       id: 1,
@@ -58,4 +58,5 @@ export class AppComponent {
       this.selectedCities.splice(index, 1);
     }
   }
+
 }

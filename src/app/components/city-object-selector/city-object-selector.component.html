@@ -19,7 +19,7 @@
 
 <div class="city-selector">
   <div class="custom-select">
-    <span (click)="toggleDropdown()">
+    <span (click)="toggleDropdown()" class="dropdown-icon">
       <mat-icon *ngIf="!showDropdown">keyboard_arrow_right</mat-icon>
       <mat-icon *ngIf="showDropdown">keyboard_arrow_left</mat-icon>
     </span>
@@ -27,22 +27,16 @@
       <span *ngFor="let city of selectedCities">{{cityInput ? city.nome : '' }}</span>
     </div>
     <div class="dropdown" *ngIf="showDropdown">
-      <input
-        placeholder="Digita il nome della città"
-        [(ngModel)]="cityInput"
-        (click)="stopPropagation($event)"
-        (keyup)="filterCities()"
-      />
+      <input placeholder="Digita il nome della città" [(ngModel)]="cityInput" (click)="stopPropagation($event)"
+        (keyup)="filterCities()" />
 
       <div class="filtered-cities" *ngIf="filteredCities.length > 0">
         <ul>
-        <li *ngFor="let city of filteredCities" (click)="selectCity(city)">
-          {{ cityInput ? city.nome : '' }}
-        </li>
-      </ul>
+          <li *ngFor="let city of filteredCities" (click)="selectCity(city)">
+            {{ cityInput ? city.nome : '' }}
+          </li>
+        </ul>
       </div>
     </div>
   </div>
 </div>
-
-
