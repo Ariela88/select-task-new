@@ -16,13 +16,17 @@ import {NgFor} from '@angular/common';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { CityCardComponent } from './components/city-card/city-card.component';
+import { InsertCityComponent } from './components/insert-city/insert-city.component';
+import { MainComponent } from './components/main/main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CitySelectorComponent,
     CityObjectSelectorComponent,
-    CityCardComponent
+    CityCardComponent,
+    InsertCityComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

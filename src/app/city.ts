@@ -6,4 +6,5 @@ export interface City {
     nome:string;
     targa:string;
     capoluogo:boolean;
+    selected:boolean;
 }

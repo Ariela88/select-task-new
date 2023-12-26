@@ -33,6 +33,7 @@
       <div class="filtered-cities" *ngIf="filteredCities.length > 0">
         <ul>
           <li *ngFor="let city of filteredCities" (click)="selectCity(city)">
+            <mat-icon *ngIf="city.selected"> done </mat-icon>
             {{ cityInput ? city.nome : '' }}
           </li>
         </ul>

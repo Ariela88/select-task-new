@@ -25,6 +25,7 @@ export class CityObjectSelectorComponent implements ControlValueAccessor {
 
   filteredCities: City[] = [];
   cityInput: string = '';
+  
 
   filterCities() {
     this.filteredCities = this.cities.filter((city) =>
@@ -37,12 +38,17 @@ export class CityObjectSelectorComponent implements ControlValueAccessor {
   }
 
   selectCity(city: City) {
-    if (!this.selectedCities.some((c) => c.id === city.id)) {
+    if (!this.selectedCities.some((c) => c.id === city.id) && this.selectedCities.length < 3) {
       this.selectedCities.push(city);
       this.onChange(this.selectedCities);
       this.cityInput = '';
       this.filteredCities = [];
+      city.selected = true
+    } else{
+      alert('puoi selezionare al massimo 3 città')
     }
+
+   
   }
 
   writeValue(value: any): void {
@@ -86,4 +92,40 @@ export class CityObjectSelectorComponent implements ControlValueAccessor {
   toggleDropdown(): void {
     this.showDropdown = !this.showDropdown;
   }
+
+  selectedIndex: number = -1
+  onKeyUp(event: KeyboardEvent): void {
+    switch (event.key) {
+      case 'ArrowUp':
+        this.selectedIndex = Math.max(this.selectedIndex - 1, 0);
+        this.scrollIntoView();
+        break;
+      case 'ArrowDown':
+        this.selectedIndex = Math.min(this.selectedIndex + 1, this.filteredCities.length - 1);
+        this.scrollIntoView();
+        break;
+      case 'Enter':
+        this.onEnter();
+        break;
+      default:
+        this.filterCities(); 
+        break;
+    }
+  }
+
+  scrollIntoView(): void {
+    if (this.selectedIndex >= 0 && this.selectedIndex < this.filteredCities.length) {
+      const selectedElement = document.querySelector('.filtered-cities li.selected');
+      if (selectedElement) {
+        selectedElement.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      }
+    }
+  }
+
+  onEnter(): void {
+    if (this.selectedIndex >= 0 && this.selectedIndex < this.filteredCities.length) {
+      this.selectCity(this.filteredCities[this.selectedIndex]);
+    }
+  }
+  
 }
